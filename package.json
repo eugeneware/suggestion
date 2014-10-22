@@ -1,0 +1,29 @@
+{
+  "name": "suggestion",
+  "version": "1.0.0",
+  "description": "Google suggest API",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/tape test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eugeneware/suggestion"
+  },
+  "keywords": [
+    "google",
+    "suggest",
+    "api"
+  ],
+  "author": "Eugene Ware <eugene@noblesamurai.com>",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/eugeneware/suggestion/issues"
+  },
+  "dependencies": {
+    "request": "^2.45.0"
+  },
+  "devDependencies": {
+    "tape": "~2.3.2"
+  }
+}
