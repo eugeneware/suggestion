@@ -21,6 +21,7 @@
     "url": "https://github.com/eugeneware/suggestion/issues"
   },
   "dependencies": {
+    "after": "^0.8.1",
     "request": "^2.45.0"
   },
   "devDependencies": {
