@@ -52,17 +52,22 @@ function suggest(keyword, opts, cb) {
 }
 
 function doSuggest(keyword, opts, cb) {
+  var qs = {
+    client: opts.client,
+    hl: opts.hl,
+    gs_rn: 0,
+    gs_ri: opts.client,
+    cp: opts.cp,
+    gs_id: (reqId++),
+    q: keyword
+  };
+
+  if (opts.client === 'youtube') {
+    qs.ds = 'yt'
+  }
   request({
     url: urlBase,
-    qs: {
-      client: opts.client,
-      hl: opts.hl,
-      gs_rn: 0,
-      gs_ri: opts.client,
-      cp: opts.cp,
-      gs_id: (reqId++),
-      q: keyword
-    },
+    qs: qs,
     headers: { 'User-Agent': userAgent }
   }, function (err, res, body) {
     if (err) return cb(err);
