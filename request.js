@@ -6,7 +6,7 @@ function request(opts, cb) {
   parts.query = opts.qs;
   jsonp(url.format(parts), function(err, data) {
     if (err) return cb(err);
-    cb(null, {}, 'window.google.ac.h(' + JSON.stringify(data) + ')');
+    cb(null, {}, data);
   });
 };
 

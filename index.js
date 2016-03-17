@@ -1,4 +1,5 @@
-var request = typeof window !== 'undefined' ? require('./request') : require('request').defaults({ jar: true }),
+var isBrowser = typeof window !== 'undefined',
+    request = isBrowser ? require('./request') : require('request').defaults({ jar: true }),
     he = require('he'),
     after = require('after');
 
@@ -71,20 +72,22 @@ function doSuggest(keyword, opts, cb) {
     headers: { 'User-Agent': userAgent }
   }, function (err, res, body) {
     if (err) return cb(err);
-    var m = resRegex.exec(body);
-    if (m) {
+    if (typeof body === 'string') {
+      var m = resRegex.exec(body);
       try {
-        var o = JSON.parse(m[1]);
-        if (Array.isArray(o) && o.length) {
-          var suggestions = o[1].map(function (item) {
-            return he.decode(stripTags(item[0]));
-          });
-          return cb(null, suggestions);
-        }
+        body = m ? JSON.parse(m[1]) : [];
       } catch (err) {
         return cb(err);
       }
     }
+
+    if (Array.isArray(body) && body.length) {
+      var suggestions = body[1].map(function (item) {
+        return he.decode(stripTags(item[0]));
+      });
+      return cb(null, suggestions);
+    }
+
     cb(null, []);
   });
 }
