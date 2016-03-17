@@ -1,4 +1,4 @@
-var request = require('request').defaults({ jar: true }),
+var request = typeof window !== 'undefined' ? require('./request') : require('request').defaults({ jar: true }),
     he = require('he'),
     after = require('after');
 
