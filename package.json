@@ -4,7 +4,7 @@
   "description": "Google suggest API",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/.bin/tape test/*.js"
+    "test": "tape test/*.js && browserify test/*.js | tape-run"
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,7 @@
     "request": "^2.45.0"
   },
   "devDependencies": {
-    "tape": "~2.3.2"
+    "tape": "^4.5.1",
+    "tape-run": "^2.1.3"
   }
 }
