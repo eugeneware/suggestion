@@ -1,6 +1,6 @@
 {
   "name": "suggestion",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Google suggest API",
   "main": "index.js",
   "scripts": {
