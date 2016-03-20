@@ -5,7 +5,7 @@ var isBrowser = typeof window !== 'undefined',
 
 module.exports = suggest;
 
-var urlBase = 'http://clients1.google.com/complete/search'
+var urlBase = 'https://clients1.google.com/complete/search'
 var resRegex = /^window\.google\.ac\.h\((.*)\)$/;
 var userAgent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.104 Safari/537.36';
 var reqId = 0;
